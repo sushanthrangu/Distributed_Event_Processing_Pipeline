@@ -1,0 +1,6 @@
+com/example/producer/observability/LoggingFilter.class
+com/example/producer/api/EventController.class
+com/example/producer/ProducerApplication.class
+com/example/producer/kafka/EventProducer.class
+com/example/producer/api/dto/EventRequest.class
+com/example/producer/kafka/KafkaConfig.class

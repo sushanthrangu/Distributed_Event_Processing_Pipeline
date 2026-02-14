@@ -1,0 +1,10 @@
+com/example/consumer/repo/EventRepository.class
+com/example/consumer/model/EventEntity.class
+com/example/consumer/kafka/EventListener.class
+com/example/consumer/kafka/DlqPublisher.class
+com/example/consumer/service/EventProcessor.class
+com/example/consumer/repo/JdbcEventRepository.class
+com/example/consumer/observability/LogContext.class
+com/example/consumer/kafka/KafkaConsumerConfig.class
+com/example/consumer/ConsumerApplication.class
+com/example/consumer/repo/EventRepository$EventRow.class

@@ -1,0 +1,107 @@
+spring:
+  application:
+    name: producer-api
+
+  # Kafka Producer Configuration
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    producer:
+      # Serializers
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      
+      # Reliability settings
+      acks: all                          # Wait for all replicas to acknowledge
+      retries: 3                         # Retry failed sends
+      
+      # Performance settings
+      properties:
+        linger.ms: 10                    # Batch messages for 10ms
+        batch.size: 16384                # 16KB batch size
+        compression.type: snappy         # Compress messages
+        max.in.flight.requests.per.connection: 5
+        enable.idempotence: true         # Exactly-once semantics
+        
+      # JSON serialization settings
+      value-serializer-class: org.springframework.kafka.support.serializer.JsonSerializer
+
+# Server Configuration
+server:
+  port: ${SERVER_PORT:8080}
+  shutdown: graceful
+  
+  # Compression
+  compression:
+    enabled: true
+    mime-types: application/json,text/html,text/xml,text/plain
+    
+  # Tomcat settings
+  tomcat:
+    threads:
+      max: 200
+      min-spare: 10
+    connection-timeout: 20000
+
+# Management / Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus,metrics
+      base-path: /actuator
+  
+  endpoint:
+    health:
+      show-details: always
+      probes:
+        enabled: true
+  
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+    tags:
+      application: ${spring.application.name}
+      service: producer
+
+# Application Configuration
+app:
+  kafka:
+    topics:
+      events: events
+      dlq: events.dlq
+  
+  # API Configuration
+  api:
+    rate-limit:
+      enabled: false
+      requests-per-second: 100
+
+# Logging Configuration
+logging:
+  level:
+    root: INFO
+    com.example.producer: DEBUG
+    org.springframework.kafka: INFO
+    org.apache.kafka: WARN
+  
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+
+# Lifecycle
+spring.lifecycle:
+  timeout-per-shutdown-phase: 30s
+
+---
+# Docker Profile
+spring:
+  config:
+    activate:
+      on-profile: docker
+  
+  kafka:
+    bootstrap-servers: kafka:29092
+
+logging:
+  level:
+    com.example.producer: INFO
