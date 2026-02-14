@@ -1,4 +1,5 @@
 /Users/sushanthrangu/Documents/distributed-event-pipeline/producer-api/src/main/java/com/example/producer/kafka/KafkaConfig.java
+/Users/sushanthrangu/Documents/distributed-event-pipeline/producer-api/src/main/java/com/example/producer/config/CorsConfig.java
 /Users/sushanthrangu/Documents/distributed-event-pipeline/producer-api/src/main/java/com/example/producer/api/EventController.java
 /Users/sushanthrangu/Documents/distributed-event-pipeline/producer-api/src/main/java/com/example/producer/api/dto/EventRequest.java
 /Users/sushanthrangu/Documents/distributed-event-pipeline/producer-api/src/main/java/com/example/producer/ProducerApplication.java

@@ -4,6 +4,7 @@
 /Users/sushanthrangu/Documents/distributed-event-pipeline/consumer-service/src/main/java/com/example/consumer/kafka/EventListener.java
 /Users/sushanthrangu/Documents/distributed-event-pipeline/consumer-service/src/main/java/com/example/consumer/service/EventProcessor.java
 /Users/sushanthrangu/Documents/distributed-event-pipeline/consumer-service/src/main/java/com/example/consumer/repo/JdbcEventRepository.java
+/Users/sushanthrangu/Documents/distributed-event-pipeline/consumer-service/src/main/java/com/example/consumer/config/JacksonConfig.java
 /Users/sushanthrangu/Documents/distributed-event-pipeline/consumer-service/src/main/java/com/example/consumer/observability/LogContext.java
 /Users/sushanthrangu/Documents/distributed-event-pipeline/consumer-service/src/main/java/com/example/consumer/repo/EventRepository.java
 /Users/sushanthrangu/Documents/distributed-event-pipeline/consumer-service/src/main/java/com/example/consumer/kafka/KafkaConsumerConfig.java
